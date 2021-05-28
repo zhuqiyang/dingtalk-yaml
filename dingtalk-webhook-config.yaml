@@ -1,0 +1,56 @@
+apiVersion: v1
+data:
+  config.yml: |
+    ## Request timeout
+    # timeout: 5s
+
+    ## Customizable templates path
+    # templates:
+    #   - contrib/templates/legacy/template.tmpl
+
+    ## You can also override default template using `default_message`
+    ## The following example to use the 'legacy' template from v0.3.0
+    # default_message:
+    #   title: '{{ template "legacy.title" . }}'
+    #   text: '{{ template "legacy.content" . }}'
+
+    ## Targets, previously was known as "profiles"
+    targets:
+      webhook1:
+        url: https://oapi.dingtalk.com/robot/send?access_token=51b2b72be37aa33da39e898d07747fed2d297fecb8ccaceb74a1e01ff47f21de
+        # secret for signature
+        secret: SEC0f5a304ad26c1f7ab25e40b6b8c98cd70448f8ca1bd29f40a1dec2755a3f8e73
+      webhook2:
+        url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx
+      webhook_legacy:
+        url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx
+        # Customize template content
+        message:
+          # Use legacy template
+          title: '{{ template "legacy.title" . }}'
+          text: '{{ template "legacy.content" . }}'
+      webhook_mention_all:
+        url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx
+        mention:
+          all: true
+      webhook_mention_users:
+        url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx
+        mention:
+          mobiles: ['156xxxx8827', '189xxxx8325']
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-05-28T10:32:39Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:config.yml: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-05-28T10:32:39Z"
+  name: dingtalk-webhook
+  namespace: monitoring
+  selfLink: /api/v1/namespaces/default/configmaps/dingtalk-webhook
+  uid: dae1f5b6-60da-4754-bd1a-30e152d591bb
