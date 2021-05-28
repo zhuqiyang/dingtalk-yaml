@@ -17,9 +17,9 @@ data:
     ## Targets, previously was known as "profiles"
     targets:
       webhook1:
-        url: https://oapi.dingtalk.com/robot/send?access_token=51b2b72be37aa33da39e898d07747fed2d297fecb8ccaceb74a1e01ff47f21de
+        url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         # secret for signature
-        secret: SEC0f5a304ad26c1f7ab25e40b6b8c98cd70448f8ca1bd29f40a1dec2755a3f8e73
+        secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       webhook2:
         url: https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxxxxx
       webhook_legacy:
